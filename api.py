@@ -12,6 +12,21 @@ def do_something(text1,text2):
 def home():
     return render_template('index.html')
 
+
+@app.route('/keyExt', methods=["GET"])
+def keyword_extraction():
+    return render_template('keyExt.html')
+
+
+@app.route('/preproc', methods=["GET"])
+def pre_process():
+    return render_template('preproc.html')
+
+
+@app.route('/others', methods=["GEsT"])
+def others():
+    return render_template('others.html')
+
 @app.route('/join', methods=['GET','POST'])
 def my_form_post():
     text1 = request.form['text1']
@@ -23,6 +38,8 @@ def my_form_post():
     }
     result = {str(key): value for key, value in result.items()}
     return jsonify(result=result)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
