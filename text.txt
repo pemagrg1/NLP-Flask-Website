@@ -1,0 +1,13 @@
+NATURAL LANGUAGE PROCESSING
+Natural Language Processing (NLP) is an area of computer science and artificial intelligence concerned with interactions between computer and human(natural) language.
+
+According to the Wiki definition:
+Natural-language processing (NLP) is an area of computer science and artificial intelligence concerned with the interactions between computers and human (natural) languages, in particular how to program computers to fruitfully process large amounts of natural language data.
+
+
+TEXT PRE-PROCESSING
+So are you planning to do a research in text fields but not sure about how to start?
+
+Well, why not start with pre-processing of text as it is very important while doing research in text field and its easy! Cleaning the text helps you get quality output by removing all irrelevant text and getting the forms of the words etc.
+
+
