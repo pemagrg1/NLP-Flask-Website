@@ -48,6 +48,28 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+
+	function myFunction() {
+	var text1= $('#text1').val();
+	  $.ajax({
+				  url: "/lower",
+				  type: "POST",
+				  data: {text1:text1}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="<br><b>Result::"+val+"<b>"
+					});
+					html +="<b><b>";
+					$(".show-data").append(html);
+				});
+	};
+
+  	</script>
 
 	</head>
 	<body>
@@ -82,52 +104,39 @@
 		<div id="fh5co-main">
 
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Services</h2>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-strategy"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Strategy</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-telescope"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Explore</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
-					</div>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Text Pre-Processing</h2>
+				<p>
+					So are you planning to do a research in text fields but not sure about how to start?<br>
 
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-circle-compass"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Direction</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
+					Well, why not start with pre-processing of text as it is very important while doing
+					research in text field and its easy! Cleaning the text helps you get quality output by removing
+					all irrelevant text and getting the forms of the words etc.
+				</p>
+			</div>
+
+
+			<div class="fh5co-narrow-content">
+				<div class="row">
+					<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
+						<h1 class="fh5co-heading-colored">Let's do this!</h1>
 					</div>
-					<div class="col-md-6">
-						<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-							<div class="fh5co-icon">
-								<i class="icon-tools-2"></i>
-							</div>
-							<div class="fh5co-text">
-								<h3>Expertise</h3>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+						<p class="fh5co-lead">
+							In this article, we will be covering:<br>
+							1. Converting text to lowercase<br>
+							2. Contraction<br>
+							3. Sentence tokenize<br>
+							4. Word tokenize<br>
+							5. Spell Check<br>
+							6. Lemmatize<br>
+							7. Stemming<br>
+							8. Remove Tags<br>
+							9. Remove numbers<br>
+							10. Remove punctuation<br>
+							11. Remove stopwords<br>
+						</p>
 					</div>
 
 				</div>
@@ -137,45 +146,97 @@
 			<div class="fh5co-testimonial" >
 				<div class="fh5co-narrow-content">
 					<div class="owl-carousel-fullwidth animate-box" data-animate-effect="fadeInLeft">
-		            <div class="item">
-		            	<figure>
-		            		<img src="images/testimonial_person2.jpg" alt="Free HTML5 Bootstrap Template">
-		            	</figure>
-		              	<p class="text-center quote">&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained. &rdquo; <cite class="author">&mdash; Ferdinand A. Porsche</cite></p>
-		            </div>
-		            <div class="item">
-		            	<figure>
-		            		<img src="images/testimonial_person3.jpg" alt="Free HTML5 Bootstrap Template">
-		            	</figure>
-		              	<p class="text-center quote">&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while. &rdquo;<cite class="author">&mdash; Steve Jobs</cite></p>
-		            </div>
-		            <div class="item">
-		            	<figure>
-		            		<img src="images/testimonial_person4.jpg" alt="Free HTML5 Bootstrap Template">
-		            	</figure>
-		              	<p class="text-center quote">&ldquo;I think design would be better if designers were much more skeptical about its applications. If you believe in the potency of your craft, where you choose to dole it out is not something to take lightly. &rdquo;<cite class="author">&mdash; Frank Chimero</cite></p>
-		            </div>
+						<table>
+							<tr>
+								<th>Index</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Converting text to lowercase</td>
+								<td><input type="text" id="text1" name="text1"></td>
+								<td><button id="clicked" onclick="myFunction()">Submit</button><br></td>
+								<td><p class="show-data"></p></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Contraction</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Sentence tokenize</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>Word tokenize</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Spell Check </td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>Lemmatize</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>Stemming</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>Remove Tags </td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>Remove numbers</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>Remove punctuation</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>Remove stopwords</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
 		          </div>
 				</div>
 			</div>
 
-
-
-
-			<div class="fh5co-narrow-content">
-				<div class="row">
-					<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-						<h1 class="fh5co-heading-colored">Get in touch</h1>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-						<p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
-					</div>
-
-				</div>
-			</div>
 
 		</div>
 	</div>

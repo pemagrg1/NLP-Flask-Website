@@ -40,7 +40,16 @@ def my_form_post():
     result = {str(key): value for key, value in result.items()}
     return jsonify(result=result)
 
-
+@app.route('/lower', methods=["POST"])
+def lower_case():
+    text1 = request.form['text1']
+    print(text1)
+    word = text1.lower()
+    result = {
+        "lower_word": word
+    }
+    result = {str(key): value for key, value in result.items()}
+    return jsonify(result=result)
 
 if __name__ == '__main__':
     app.run(debug=True)
