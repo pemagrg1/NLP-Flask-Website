@@ -9,6 +9,7 @@ def do_something(text1,text2):
    return combine
 
 @app.route('/')
+@app.route('/home')
 def home():
     return render_template('index.html')
 
@@ -23,7 +24,7 @@ def pre_process():
     return render_template('preproc.html')
 
 
-@app.route('/others', methods=["GEsT"])
+@app.route('/others', methods=["GET"])
 def others():
     return render_template('others.html')
 
