@@ -147,6 +147,20 @@ def remove_stopwords():
     result = {str(key): value for key, value in result.items()}
     return jsonify(result=result)
 
+
+@app.route("/keyword", methods=["GET","POST"])
+def keyword():
+    text = request.form['text']
+    word = nltk.word_tokenize(text)
+    pos_tag = nltk.pos_tag(word)
+    chunk = nltk.ne_chunk(pos_tag)
+    NE = [" ".join(w for w, t in ele) for ele in chunk if isinstance(ele, nltk.Tree)]
+    result = {
+        "result": NE
+    }
+    result = {str(key): value for key, value in result.items()}
+    return jsonify(result=result)
+
 if __name__ == '__main__':
     app.run(debug=True)
 
