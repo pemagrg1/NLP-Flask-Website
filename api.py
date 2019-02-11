@@ -24,6 +24,10 @@ def pre_process():
 def others():
     return render_template('others.html')
 
+@app.route('/installation', methods=["GET"])
+def installation():
+    return render_template('installation.html')
+
 
 @app.route('/lower', methods=["GET", "POST"])
 def lower_case():
