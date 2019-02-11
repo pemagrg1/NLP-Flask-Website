@@ -51,21 +51,183 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script>
 
-	function myFunction() {
-	var text1= $('#text1').val();
+	function lowercase() {
+	var text= $('#lowercase_text').val();
 	  $.ajax({
 				  url: "/lower",
 				  type: "POST",
-				  data: {text1:text1}
+				  data: {text:text}
 			  }).done(function(response) {
 				var html= "";
 				response =response.result;
 					 $.each(response,function(key,val){
 					 console.log(val);
-						html+="<br><b>Result::"+val+"<b>"
+						html+="RESULT :"+val
 					});
-					html +="<b><b>";
-					$(".show-data").append(html);
+					html +="";
+					$(".lowercase").append(html);
+				});
+	};
+
+	function sent_tokenize() {
+	var text= $('#sent_tokenize_text').val();
+	  $.ajax({
+				  url: "/sent_tokenize",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".sent_tokenize").append(html);
+				});
+	};
+
+	function word_tokenize() {
+	var text= $('#word_tokenize_text').val();
+	  $.ajax({
+				  url: "/word_tokenize",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".word_tokenize").append(html);
+				});
+	};
+
+	function spell_check() {
+	var text= $('#spell_check_text').val();
+	  $.ajax({
+				  url: "/spell_check",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".spell_check").append(html);
+				});
+	};
+
+	function lemmatize() {
+	var text= $('#lemmatize_text').val();
+	  $.ajax({
+				  url: "/lemmatize",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".lemmatize").append(html);
+				});
+	};
+
+	function stemming() {
+	var text= $('#stemming_text').val();
+	  $.ajax({
+				  url: "/stemming",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".stemming").append(html);
+				});
+	};
+
+	function remove_tags() {
+	var text= $('#remove_tags_text').val();
+	  $.ajax({
+				  url: "/remove_tags",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".remove_tags").append(html);
+				});
+	};
+
+	function remove_numbers() {
+	var text= $('#remove_numbers_text').val();
+	  $.ajax({
+				  url: "/remove_numbers",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".remove_numbers").append(html);
+				});
+	};
+
+	function remove_punct() {
+	var text= $('#remove_punct_text').val();
+	  $.ajax({
+				  url: "/remove_punct",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".remove_punct").append(html);
+				});
+	};
+
+	function remove_stopwords() {
+	var text= $('#remove_stopwords_text').val();
+	  $.ajax({
+				  url: "/remove_stopwords",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="RESULT :"+val
+					});
+					html +="";
+					$(".remove_stopwords").append(html);
 				});
 	};
 
@@ -126,16 +288,15 @@
 						<p class="fh5co-lead">
 							In this article, we will be covering:<br>
 							1. Converting text to lowercase<br>
-							2. Contraction<br>
-							3. Sentence tokenize<br>
-							4. Word tokenize<br>
-							5. Spell Check<br>
-							6. Lemmatize<br>
-							7. Stemming<br>
-							8. Remove Tags<br>
-							9. Remove numbers<br>
-							10. Remove punctuation<br>
-							11. Remove stopwords<br>
+							2. Sentence tokenize<br>
+							3. Word tokenize<br>
+							4. Spell Check<br>
+							5. Lemmatize<br>
+							6. Stemming<br>
+							7. Remove Tags<br>
+							8. Remove numbers<br>
+							9. Remove punctuation<br>
+							10. Remove stopwords<br>
 						</p>
 					</div>
 
@@ -156,80 +317,73 @@
 							</tr>
 							<tr>
 								<td>1</td>
-								<td>Converting text to lowercase</td>
-								<td><input type="text" id="text1" name="text1"></td>
-								<td><button id="clicked" onclick="myFunction()">Submit</button><br></td>
-								<td><p class="show-data"></p></td>
+								<td>Converting text to lowercase (eg: "I AM PEMA")</td>
+								<td><input type="text" id="lowercase_text"></td>
+								<td><button id="lowercase_clicked" onclick="lowercase()">Submit</button><br></td>
+								<td class="lowercase"></td>
 							</tr>
 							<tr>
 								<td>2</td>
-								<td>Contraction</td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Sentence tokenize(eg: "I'm Pema. This is a test.")</td>
+								<td><input type="text" id="sent_tokenize_text"></td>
+								<td><button id="sent_tokenize_clicked" onclick="sent_tokenize()">Submit</button><br></td>
+								<td class="sent_tokenize"></td>
 							</tr>
 							<tr>
 								<td>3</td>
-								<td>Sentence tokenize</td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Word tokenize (eg: "I AM PEMA")</td>
+								<td><input type="text" id="word_tokenize_text" ></td>
+								<td><button id="word_tokenize_clicked" onclick="word_tokenize()">Submit</button><br></td>
+								<td class="word_tokenize"></td>
 							</tr>
 							<tr>
 								<td>4</td>
-								<td>Word tokenize</td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Spell Check(eg: "Thss is a test") </td>
+								<td><input type="text" id="spell_check_text"></td>
+								<td><button id="spell_check_clicked" onclick="spell_check()">Submit</button><br></td>
+								<td class="spell_check"></td>
 							</tr>
 							<tr>
 								<td>5</td>
-								<td>Spell Check </td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Lemmatize (eg: "the functions of this fan")</td>
+								<td><input type="text" id="lemmatize_text" ></td>
+								<td><button id="lemmatize_clicked" onclick="lemmatize()">Submit</button><br></td>
+								<td class="lemmatize"></td>
 							</tr>
 							<tr>
 								<td>6</td>
-								<td>Lemmatize</td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Stemming(eg: "test functioning")</td>
+								<td><input type="text" id="stemming_text"></td>
+								<td><button id="stemming_clicked" onclick="stemming()">Submit</button><br></td>
+								<td class="stemming"></td>
 							</tr>
 							<tr>
 								<td>7</td>
-								<td>Stemming</td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Remove Tags (eg: "this <\test> tag")</td>
+								<td><input type="text" id="remove_tags_text" ></td>
+								<td><button id="remove_tags_clicked" onclick="remove_tags()">Submit</button><br></td>
+								<td class="remove_tags"></td>
 							</tr>
 							<tr>
 								<td>8</td>
-								<td>Remove Tags </td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Remove numbers (eg: "test 1243")</td>
+								<td><input type="text" id="remove_numbers_text"></td>
+								<td><button id="remove_numbers_clicked" onclick="remove_numbers()">Submit</button><br></td>
+								<td class="remove_numbers"></td>
 							</tr>
 							<tr>
 								<td>9</td>
-								<td>Remove numbers</td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Remove punctuation (eg: "test this! or $")</td>
+								<td><input type="text" id="remove_punct_text"></td>
+								<td><button id="remove_punct_clicked" onclick="remove_punct()">Submit</button><br></td>
+								<td class="remove_punct"></td>
 							</tr>
 							<tr>
 								<td>10</td>
-								<td>Remove punctuation</td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>11</td>
-								<td>Remove stopwords</td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Remove stopwords (eg: "all kinds of things")</td>
+								<td><input type="text" id="remove_stopwords_text"></td>
+								<td><button id="remove_stopwords_clicked" onclick="remove_stopwords()">Submit</button><br></td>
+								<td class="remove_stopwords"></td>
 							</tr>
 						</table>
 					</div>
