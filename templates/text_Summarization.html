@@ -10,7 +10,7 @@
 	<title>Natural Language Processing</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="text_sums" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
 
   	<!-- Facebook and Twitter integration -->
@@ -48,7 +48,27 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
 
+	function text_sum() {
+	var text= $('#text_sum_text').val();
+	  $.ajax({
+				  url: "/summarize",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="<b>Keywords Extracted :</b>"+val
+					});
+					html +="";
+					$(".text_sum").append(html);
+				});
+	};
+	</script>
 	</head>
 	<body>
 
@@ -85,34 +105,57 @@
 			<div class="fh5co-narrow-content">
 				<div class="row">
 					<div class="col-md-5">
-						<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Installation Guide</h2>
-						<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Install the packages:</p>
+						<h1 class="animate-box" data-animate-effect="fadeInLeft">Text Summarization</h1>
+						<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">
+						</p>
 						<p class="animate-box" data-animate-effect="fadeInLeft">
-							1. nltk <br>
-							2. autospell<br>
-							3. gensim<br>
+							So what is automatic text summarization? What does it do? Summarizes text automatically? By who? Computers? How do machines even do it? Sounds complicated right? But no worries 😃 At the end of this blog, you will even know how to implement it!! Sounds cool, ain’t it?
 
+							So, let's start with Text summarization! Text summarization is the process of filtering the most important information from the source to reduce the length of the text document. And Automatic text summarization is the process of generating summaries of a document without any human intervention.
+
+							We humans can do such task easily as we have the capacity to understand the meaning of the text document and extract features and summarize it. Like if I give you 100 lines of sentences with a topic and I ask you to summarize it or get top 10 related sentences to the topic, it’s easy, right? But what if I give you millions of documents and I ask you to do the same? How long will that take? And how good will it be? how much manpower will it require? which means it will be more costly.
 						</p>
 					</div>
+					<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
+						<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">
+							<br><br><br><br><br>Where can it be applied?
+						</p>
+						<p class="animate-box" data-animate-effect="fadeInLeft">
 
+						There are various areas where ATS can be applied like:<br>
+
+						1. Abstract generation of Research paper<br>
+						2. Abstract generation of books<br>
+						3. Summarizing news articles<br>
+						4. Summarizing any articles<br>
+						5. Summarizing stories as a short description<br>
+						6. Summarizing blogs<br>
+						7. Summarizing emails<br>
+						8. Summarizing documents<br>
+						9. Generating movie reviews<br>
+						</p>
+					</div>
 				</div>
-
+				
 			</div>
-
-
 
 			<div class="fh5co-narrow-content">
 				<div class="row">
 					<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-						<h1 class="fh5co-heading-colored">Start Coding! </h1>
+						<h1 class="fh5co-heading-colored">Let's try some!</h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-						<p class="fh5co-lead">Start with Pre Processing</p>
-						<p><a href="preproc" class="btn btn-primary btn-outline">Learn More</a></p>
+						<p class="fh5co-lead">
+							<i style="font-size: small;">Enter some text (more than 2 sentences)</i> <br>
+							<input type="text" id="text_sum_text" style="height:200px; font-size:14pt;width: 50%;">
+							<button id="text_sum_clicked" onclick="text_sum()" class="btn btn-primary btn-outline">Submit</button>
+						</p>
+						<p class="text_sum">
+						</p>
 					</div>
-
+					
 				</div>
 			</div>
 

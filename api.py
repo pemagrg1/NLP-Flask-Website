@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template,jsonify
 import nltk
 from autocorrect import spell
+from gensim.summarization import summarize as g_sumn
 
 app = Flask(__name__)
 
@@ -23,6 +24,12 @@ def pre_process():
 @app.route('/others', methods=["GET"])
 def others():
     return render_template('others.html')
+
+
+@app.route('/summary', methods=["GET"])
+def summary():
+    return render_template('text_Summarization.html')
+
 
 @app.route('/installation', methods=["GET"])
 def installation():
@@ -157,6 +164,24 @@ def keyword():
     NE = [" ".join(w for w, t in ele) for ele in chunk if isinstance(ele, nltk.Tree)]
     result = {
         "result": NE
+    }
+    result = {str(key): value for key, value in result.items()}
+    return jsonify(result=result)
+
+
+@app.route("/summarize", methods=["GET","POST"])
+def summarize():
+    text = request.form['text']
+    sent = nltk.sent_tokenize(text)
+    if len(sent) < 2:
+        summary1 =  "please pass more than 3 sentences to summarize the text"
+    else:
+        summary = g_sumn(text)
+        summ = nltk.sent_tokenize(summary)
+        summary1 = (" ".join(summ[:2]))
+    print (summary1)
+    result = {
+        "result": summary1
     }
     result = {str(key): value for key, value in result.items()}
     return jsonify(result=result)
