@@ -179,7 +179,6 @@ def summarize():
         summary = g_sumn(text)
         summ = nltk.sent_tokenize(summary)
         summary1 = (" ".join(summ[:2]))
-    print (summary1)
     result = {
         "result": summary1
     }
