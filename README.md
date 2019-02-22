@@ -13,4 +13,5 @@ Note: if you want don't know much about FLASK and webapp, go through : https://m
 
 <br>
 ## Creating a Flask Website for NLP <br>
-![](NLPFlask.gif)
+
+![nlpgif](NLPFlask.gif)
