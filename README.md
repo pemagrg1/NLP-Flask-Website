@@ -8,14 +8,16 @@ Note: if you want don't know much about FLASK and webapp, go through : https://m
 
 
 # To Execute
-1. run api.py
+1. run ```api.py```
 2. open the url that it gives you after you run the code
 3. Tada!! the web app will open!
 
 Still confused as to how to run?<br>
 Well, then open your terminal,<br>
-cd <path/to/your/project><br>
+```
+cd <path/to/your/project>
 $python api.py<br>
+```
 it will give a link to open<br>
 click and the web app will be open in your Web browser.
 
