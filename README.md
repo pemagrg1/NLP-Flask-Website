@@ -23,5 +23,5 @@ click and the web app will be open in your Web browser.
 
 <br>
 # Creating a Flask Website for NLP <br>
-
+[![Run on Repl.it](https://repl.it/badge/github/pemagrg1/NLP-Flask-Website)](https://repl.it/github/pemagrg1/NLP-Flask-Website)
 ![nlpgif](NLPFlask.gif)
