@@ -5,6 +5,7 @@ from gensim.summarization import summarize as g_sumn
 
 app = Flask(__name__)
 
+port=80
 @app.route('/')
 @app.route('/home')
 def home():
@@ -186,5 +187,5 @@ def summarize():
     return jsonify(result=result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=port)
 
